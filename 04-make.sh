@@ -2,8 +2,8 @@
 cd openwrt
 
 begin_time=`date`
-make toolchain/install -j1 V=s
-make -j1 V=s
+make toolchain/install -j1 V=s < /dev/null
+make -j1 V=s < /dev/null
 end_time=`date`
 
 echo "Build time:"

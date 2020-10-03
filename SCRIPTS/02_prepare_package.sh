@@ -27,6 +27,8 @@ patch -p1 < ../PATCH/new/main/Support-hardware-random-number-generator-for-RK332
 #Crypto（test
 #wget -O- https://github.com/AmadeusGhost/lede/commit/3e668936669080ca6f3fcea5534b94d00103291a.patch | patch -p1
 
+patch -p1 < ../PATCH/new/main/rockchip-fix-NanoPi-R2S-PHY-ID.patch
+
 ##准备工作
 #回滚FW3
 rm -rf ./package/network/config/firewall
@@ -163,7 +165,10 @@ svn co https://github.com/project-openwrt/openwrt/branches/master/package/lean/p
 #oled
 git clone -b master --single-branch https://github.com/NateLol/luci-app-oled package/new/luci-app-oled
 #网易云解锁
-git clone -b master --single-branch https://github.com/project-openwrt/luci-app-unblockneteasemusic package/new/UnblockNeteaseMusic
+git clone https://github.com/project-openwrt/luci-app-unblockneteasemusic package/new/UnblockNeteaseMusic
+#pushd package/new/UnblockNeteaseMusic
+#git checkout 3e669ff
+#popd
 #定时重启
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-autoreboot package/lean/luci-app-autoreboot
 #argon主题
